@@ -1,0 +1,17 @@
+runtime: php82
+
+runtime_config:
+  document_root: .
+
+
+handlers:
+  - url: /assets
+    static_dir: assets
+
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    script: auto
+
+
+

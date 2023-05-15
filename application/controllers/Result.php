@@ -32,6 +32,35 @@ class Result extends CI_Controller
     public function index()
     {
         $post = $this->input->post();
+        $data['post'] = json_encode($post);
+        // $request = $this->constructRequest($post);
+
+        // $response = $this->sendRequest($request);
+
+
+        // if ($response["result"] == null) {
+        //     $this->writeErrorLog($response["error"], $request);
+        //     $response["result"] = $this->getRandomProductIds(100);
+        // }
+
+        // $listOfProducts  = $this->product_model->get_products_by_ids($response["result"], base_url());
+
+        // $listOfProducts = $this->formatPrice($listOfProducts);
+
+
+        // $data["listOfProducts"] = json_encode($listOfProducts);
+
+        $this->load->view('partials/header');
+        // $this->load->view('result/result', $data);
+        $this->load->view('result/result', $data);
+        $this->load->view('partials/footer');
+    }
+
+
+    public function getproducts()
+    {
+
+        $post = $this->input->post();
 
         $request = $this->constructRequest($post);
 
@@ -39,7 +68,7 @@ class Result extends CI_Controller
 
 
         if ($response["result"] == null) {
-            $this->writeErrorLog($response["error"], $request);
+            // $this->writeErrorLog($response["error"], $request);
             $response["result"] = $this->getRandomProductIds(100);
         }
 
@@ -48,11 +77,13 @@ class Result extends CI_Controller
         $listOfProducts = $this->formatPrice($listOfProducts);
 
 
-        $data["listOfProducts"] = json_encode($listOfProducts);
+        $data = array(
+            "listOfProducts" =>  json_encode($listOfProducts),
+            "status" => 200,
+        );
 
-        $this->load->view('partials/header');
-        $this->load->view('result/result', $data);
-        $this->load->view('partials/footer');
+
+        echo json_encode($data);
     }
 
     private function getRandomProductIds($num_total)
@@ -68,19 +99,19 @@ class Result extends CI_Controller
     private function writeErrorLog($error, $input)
     {
         $currentDateTime = date('Y-m-d H:i:s');
-    
+
         $data = array(
             "error" => $error,
             "input" => $input,
             "time" => $currentDateTime,
         );
-    
+
         // Encode the data to JSON format
         $jsonData = json_encode($data);
-    
+
         // Set the path and filename of the output file
         $filePath = __DIR__ . '/../logs/errorLog.json'; // construct the file path
-        
+
         // Check if the file exists, if not create it
         if (!file_exists($filePath)) {
             $fileHandle = fopen($filePath, 'w'); // create the file for writing
@@ -92,7 +123,7 @@ class Result extends CI_Controller
                 fclose($fileHandle);
             }
         }
-        
+
         // open the file for appending
         $fileHandle = fopen($filePath, 'a');
         if (!$fileHandle) {
@@ -104,7 +135,7 @@ class Result extends CI_Controller
             // close the file handle
             fclose($fileHandle);
         }
-    }    
+    }
 
     private function formatPrice($datas)
     {
@@ -116,7 +147,7 @@ class Result extends CI_Controller
 
     private function sendRequest($request)
     {
-        $url = 'https://carihadiah-flask.herokuapp.com/asd';
+        $url = 'https://carihadiah.et.r.appspot.com/recommend_productsasd';
         // $data = array(
         //     "for_who" => "teman-kerja",
         //     "gender" => "perempuan",
@@ -137,6 +168,9 @@ class Result extends CI_Controller
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+        $timeout = 10; // Adjust this value as needed
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
 
         // Send the request and get the response
         $result = curl_exec($ch);
@@ -162,11 +196,22 @@ class Result extends CI_Controller
             );
         } else {
             $error = "";
-            if (isset($data['error'])){
+            if (isset($data['error'])) {
                 $error = $data["error"];
-            }else{
+            } else {
                 $error = "error not found";
             }
+
+            $errorLog = array(
+                "error" => $error,
+                "input" => $request,
+            );
+
+            $jsonError = json_encode($errorLog);
+
+            $errorMessage = "[LOG_ERROR]".$jsonError;
+
+            error_log($errorMessage);
 
             return array(
                 'result' => null,

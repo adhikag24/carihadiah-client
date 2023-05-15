@@ -1,6 +1,7 @@
 <div class="container mx-auto px-4 pt-10">
-    <h1 style="color:#2f2c28;" class="text-2xl py-3 font-bold sm:text-3xl">Rekomendasi Hadiah</h1>
+    <h1 style="color:#2f2c28;" id="header-title" class="text-2xl py-3 font-bold sm:text-3xl">Sebentar ya, kita lagi cari rekomendasi hadiah buat kamu...</h1>
 </div>
+<!-- Sebentar ya, kita lagi cari rekomendasi hadiah buat kamu... -->
 
 <div class="container mx-auto px-4 py-8">
     <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -8,15 +9,14 @@
         <a href="#" target="_blank" id="product-card-template" class="product-card max-w-sm rounded overflow-hidden shadow-lg bg-white" style="display:none;">
             <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
             <div class="px-6 py-4">
-                <div class="font-bold sm:text-lg text-sm mb-2">The Coldest Sunset</div>
+                <div class="font-bold sm:text-lg text-sm mb-2"></div>
                 <hr class="my-2 border-gray-400">
                 <p class="text-gray-700 text-xs sm:text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+
                 </p>
                 <p id="price" class="font-bold text-gray-900 mt-2 sm:text-base text-xs">$99.99</p>
             </div>
         </a>
-
     </div>
 </div>
 <div id="loader-wrapper" class="py-10" style="display:none;">
@@ -29,12 +29,14 @@
     </div>
 </div>
 
+<div id="get-data-wrapper" class="hidden">
+    <img src="<?= base_url() ?>/assets/image/loading.gif" class="mx-auto">
+</div>
 
 
 <script>
     // $(document).ready(function() {
     //     // Get the value of the hidden input field
-    //     var jsonData = <?php echo $listOfProducts ?>;
     //     console.log(jsonData);
 
     //     var productCardTemplate = document.getElementById("product-card-template");
@@ -52,8 +54,10 @@
     //         document.querySelector(".grid").appendChild(productCardClone);
     //     });
     // });
-    $(document).ready(function() {
-        var jsonData = <?php echo $listOfProducts ?>;
+
+
+    $(document).ready(async function() {
+        var jsonData = await fetchProducts();
         var perPage = 10; // Set number of items to show per page
         var currentPage = 1; // Initialize current page to 1
         var isLoading = false; // Initialize loader state to false
@@ -98,6 +102,36 @@
                 }
             }
         });
+
+
+        function fetchProducts() {
+            console.log("masuk sini");
+            // Show loader element
+            $('#get-data-wrapper').show();
+
+            var post = <?php echo $post ?>;
+
+            // Return a promise to allow awaiting
+            return new Promise(function(resolve, reject) {
+                $.ajax({
+                    url: '<?= base_url() ?>result/getproducts',
+                    method: 'POST',
+                    data: post,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#get-data-wrapper').hide(); // Hide
+                        $('#header-title').html("Rekomendasi Hadiah untuk kamu");
+                        resolve(JSON.parse(response.listOfProducts)); // Resolve the promise with the listOfProducts
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                        reject(error); // Reject the promise with the error
+                    }
+                });
+            });
+        }
+
+
     });
 </script>
 

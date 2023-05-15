@@ -20,7 +20,7 @@
 
     <div class="h-full p-4 lg:w-1/2">
       <div class="px-8 pt-2 pb-16 relative">
-        <img class="object-contain h-70 w-70 " src="<?= base_url() ?>assets/image/landing-page.png" alt="My SVG Image" />
+        <img class="objt-contain h-70 w-70 " src="<?=base_url()?>assets/image/landing-page.png" alt="My SVG Image" />
       </div>
     </div>
   </div>
