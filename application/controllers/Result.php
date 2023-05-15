@@ -68,19 +68,33 @@ class Result extends CI_Controller
     private function writeErrorLog($error, $input)
     {
         $currentDateTime = date('Y-m-d H:i:s');
-
+    
         $data = array(
             "error" => $error,
             "input" => $input,
             "time" => $currentDateTime,
         );
-
+    
         // Encode the data to JSON format
         $jsonData = json_encode($data);
-
+    
         // Set the path and filename of the output file
         $filePath = __DIR__ . '/../logs/errorLog.json'; // construct the file path
-        $fileHandle = fopen($filePath, 'a'); // open the file for writing
+        
+        // Check if the file exists, if not create it
+        if (!file_exists($filePath)) {
+            $fileHandle = fopen($filePath, 'w'); // create the file for writing
+            if (!$fileHandle) {
+                // handle error if the file could not be created
+                echo 'Failed to create file for writing';
+            } else {
+                // close the file handle
+                fclose($fileHandle);
+            }
+        }
+        
+        // open the file for appending
+        $fileHandle = fopen($filePath, 'a');
         if (!$fileHandle) {
             // handle error if the file could not be opened
             echo 'Failed to open file for writing';
@@ -90,7 +104,7 @@ class Result extends CI_Controller
             // close the file handle
             fclose($fileHandle);
         }
-    }
+    }    
 
     private function formatPrice($datas)
     {
@@ -102,7 +116,7 @@ class Result extends CI_Controller
 
     private function sendRequest($request)
     {
-        $url = 'https://carihadiah-flask.herokuapp.com/recommend_products';
+        $url = 'https://carihadiah-flask.herokuapp.com/asd';
         // $data = array(
         //     "for_who" => "teman-kerja",
         //     "gender" => "perempuan",
