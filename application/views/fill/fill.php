@@ -322,7 +322,6 @@
         $("#step-".concat(num - 1)).show();
         StepperActivate(num - 1)
         answers.pop()
-        console.log(answers)
     }
 
     function NextAge(num) {
@@ -342,21 +341,18 @@
         const forWhoConst = ["teman-kerja", "teman", "keluarga", "orang-yang-berarti", "diri-sendiri"]
         Next(1)
         answers.push(forWhoConst[forWho])
-        console.log(answers)
     }
 
     function submitGender(gender) {
         const genderConst = ["perempuan", "laki-laki", "non-binary"]
         Next(2)
         answers.push(genderConst[gender])
-        console.log(answers)
     }
 
     function submitEvent(event) {
         const eventsConst = ["ulang-tahun", "natal", "kelulusan", "valentine", "hanya-pengen-kasih"]
         Next(4)
         answers.push(eventsConst[event])
-        console.log(answers)
     }
 
 
@@ -364,14 +360,12 @@
         const weekendActivityConst = ["main-game", "melukis", "dekorasi-rumah", "konser", "nongkrong-main-dengan-teman", "olahrga", "party", "baca-buku", "quality-time-dengan-keluarga", "masih-kerja-lembur", "istirahat-tidur", "buat-konten", "self-reward-jalan-jalan-sendiri"]
         Next(5)
         answers.push(weekendActivityConst[activity])
-        console.log(answers)
     }
 
     function submitFashionType(type) {
         const fashionTypeConst = ["glamour", "sporty", "casual", "professional", "streetwear", "trendy", "tidak-peduli", "colorful"]
         Next(6)
         answers.push(fashionTypeConst[type])
-        console.log(answers)
     }
 
     function submitContentType(contentType) {
@@ -379,13 +373,11 @@
         const contentTypeConst = ["masak-masak", "olahraga", "makan", "motivasi", "keuangan", "hiburan", "review-barang", "teknologi", "berita", "hewan", "gosip", "asmr", "apa-saja"]
         Next(7)
         answers.push(contentTypeConst[contentType])
-        console.log(answers)
     }
 
     function submitPersonality(personality) {
         const personalityConst = ['extrovert', 'introvert']
         answers.push(personalityConst[personality])
-        console.log(answers)
         SubmitData()
     }
 

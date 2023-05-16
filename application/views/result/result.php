@@ -29,6 +29,18 @@
     </div>
 </div>
 
+<div id="fill-again-wrapper" class="flex items-center justify-center" style="display:none;">
+    <div class="text-center">
+        <h3 style="color:#2f2c28;" id="header-title" class="text-sm py-5 font-semibold sm:text-2xl">Masih belum nemu yang cocok? coba lagi untuk cari referensi hadiah lainnya</h1>
+            <a href="<?= base_url() ?>fill">
+                <button class=" bg-orange-500 hover:bg-orange-700 hover:rounded-lg text-white sm:py-2 mt-3 mb-10 px-4 font-medium w-1/4">
+                    Mulai Lagi
+                </button>
+            </a>
+    </div>
+</div>
+
+
 <div id="get-data-wrapper" class="hidden">
     <img src="<?= base_url() ?>/assets/image/loading.gif" class="mx-auto">
 </div>
@@ -80,32 +92,59 @@
         showProducts(0, perPage);
         currentPage++;
 
+        // $(window).scroll(function() {
+        //     var scrollHeight = $(document).height();
+        //     var scrollPosition = $(window).height() + $(window).scrollTop();
+        //     if ((scrollHeight - scrollPosition) / scrollHeight === 0 && !isLoading) {
+        //         // If user has scrolled to bottom of page and there's no new data being loaded
+        //         isLoading = true; // Set loader state to true
+
+        //         // Show loader element
+        //         if (perPage * (currentPage - 1) < 30) {
+        //             console.log("start", perPage * (currentPage - 1))
+        //             $('#loader-wrapper').show();
+
+        //             // Simulate loading time with setTimeout
+        //             setTimeout(function() {
+        //                 showProducts(perPage * (currentPage - 1), perPage * currentPage); // Show next set of products
+        //                 currentPage++; // Increment current page
+        //                 isLoading = false; // Set loader state to false
+        //                 $('#loader-wrapper').hide(); // Hide loader element
+        //             }, 1000); // Change delay time as per your needs
+        //         }
+        //     }
+        // });
         $(window).scroll(function() {
             var scrollHeight = $(document).height();
             var scrollPosition = $(window).height() + $(window).scrollTop();
-            if ((scrollHeight - scrollPosition) / scrollHeight === 0 && !isLoading) {
-                // If user has scrolled to bottom of page and there's no new data being loaded
+            var distanceToBottom = scrollHeight - scrollPosition;
+            var threshold = 75; // Adjust this value to determine when to start loading more data
+
+            if (distanceToBottom < threshold && !isLoading) {
                 isLoading = true; // Set loader state to true
 
-                // Show loader element
                 if (perPage * (currentPage - 1) < 30) {
-                    console.log("start", perPage * (currentPage - 1))
+                    // Show loader element
                     $('#loader-wrapper').show();
 
                     // Simulate loading time with setTimeout
                     setTimeout(function() {
-                        showProducts(perPage * (currentPage - 1), perPage * currentPage); // Show next set of products
+                        var start = perPage * (currentPage - 1);
+
+                        var end = perPage * currentPage;
+                        showProducts(start, end); // Show next set of products
                         currentPage++; // Increment current page
                         isLoading = false; // Set loader state to false
                         $('#loader-wrapper').hide(); // Hide loader element
                     }, 1000); // Change delay time as per your needs
+                }else{
+                    $('#fill-again-wrapper').show();
                 }
             }
         });
 
 
         function fetchProducts() {
-            console.log("masuk sini");
             // Show loader element
             $('#get-data-wrapper').show();
 

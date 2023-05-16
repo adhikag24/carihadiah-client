@@ -147,7 +147,7 @@ class Result extends CI_Controller
 
     private function sendRequest($request)
     {
-        $url = 'https://carihadiah.et.r.appspot.com/recommend_productsasd';
+        $url = 'https://carihadiah.et.r.appspot.com/recommend_products';
         // $data = array(
         //     "for_who" => "teman-kerja",
         //     "gender" => "perempuan",
@@ -190,6 +190,18 @@ class Result extends CI_Controller
 
         if (isset($data['recommended_product_ids'])) {
             $recommended_products = $data['recommended_product_ids'];
+
+            $infoLog = array(
+                "response" => $recommended_products,
+                "input" => $request,
+            );
+
+            $jsonLog = json_encode($infoLog);
+
+            $infoMessage = "[LOG_INFO]".$jsonLog;
+            
+            error_log($infoMessage);
+
             return array(
                 'result' => $recommended_products,
                 'error' => null
