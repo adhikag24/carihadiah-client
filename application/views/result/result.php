@@ -12,7 +12,7 @@
                 <p id="product-description" class="text-gray-700 text-xs sm:text-base"></p>
                 <p id="price" class="font-bold text-gray-900 mt-2 sm:text-base text-xs">$99.99</p>
             </div>
-        </button>
+        </a>
     </div>
 </div>
 
@@ -26,11 +26,18 @@
     </div>
 </div>
 
-<div id="fill-again-wrapper" class="flex items-center justify-center" style="display:none;">
+<div id="fill-again-wrapper" class="container mx-auto px-8" style="display:none;">
     <div class="text-center">
-        <h3 style="color:#2f2c28;" id="header-title" class="text-sm py-5 font-semibold sm:text-2xl">Masih belum nemu yang cocok? coba lagi untuk cari referensi hadiah lainnya</h1>
+        <h3 style="color:#2f2c28;" id="header-title" class="text-1xl py-5 font-semibold sm:text-2xl">Masih belum nemu yang cocok? coba lagi untuk cari referensi hadiah lainnya</h1>
+            <!-- <a href="<?= base_url() ?>fill">
+                <button class=" bg-orange-500 hover:bg-orange-700 hover:rounded-lg text-white sm:py-2 mt-3 mb-5 px-4 font-medium text-sm sm:text-1xl w-1/2 sm:w-1/4">
+                    Mulai Lagi
+                </button>
+            </a> -->
             <a href="<?= base_url() ?>fill">
-                <button class=" bg-orange-500 hover:bg-orange-700 hover:rounded-lg text-white sm:py-2 mt-3 mb-10 px-4 font-medium w-1/4">
+                <!--<button class="btn mt-3 btn-wide bg-orange-500">Mulai</button>-->
+                <!--<button class="rounded-none hover:rounded-lg">Save Changes</button>-->
+                <button class="bg-orange-500 hover:bg-orange-700 hover:rounded-lg text-white py-2 px-4 mb-5 rounded-none font-semibold w-1/2 sm:w-1/4">
                     Mulai Lagi
                 </button>
             </a>
@@ -68,7 +75,7 @@
         showProducts(0, perPage);
         currentPage++;
 
-       
+
         $(window).scroll(function() {
             var scrollHeight = $(document).height();
             var scrollPosition = $(window).height() + $(window).scrollTop();
