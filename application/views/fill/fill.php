@@ -23,7 +23,7 @@
 
     <div class="container my-10 flex sm:hidden justify-center">
         <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-            <div id="progress-bar" class="bg-orange-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 0%">0%</div>
+            <div id="progress-bar" class="bg-orange-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 0% text-white">0%</div>
         </div>
     </div>
 
@@ -78,7 +78,7 @@
 
         <div id="step-3" class="step-content hidden">
             <h2 class="wording-header">Berapa Umurnya?</h2>
-            <h3 id="age-val" class="text-center text-2xl font-bold mb-4">20</h2>
+            <h3 id="age-val" class="text-center text-2xl font-bold mb-4">20 Tahun</h2>
                 <input type="range" id="range-age" min="0" max="100" value="20" class="range range-warning" />
                 <button id="prev-3" onclick="Prev(3)" class="btn ml-5 mr-3 mt-10 btn-warning text-white">Previous</button>
 
@@ -312,7 +312,7 @@
 
         $("#range-age").on('input', function() {
             var value = $(this).val();
-            $("#age-val").html(value);
+            $("#age-val").html(value + " Tahun");
         });
 
     });
@@ -460,6 +460,7 @@
         line-height: 2.25rem;
         font-weight: 700;
         margin-bottom: 1rem;
+        color: black;
     }
 
     .text-under-choices {
@@ -467,5 +468,6 @@
         font-weight: 500;
         padding-top: 1rem;
         text-align: center;
+        color: black;
     }
 </style>

@@ -2,9 +2,9 @@
   <div class="container px-5 py-10 mx-auto flex flex-wrap items-center justify-center">
     <div class="h-full p-4 lg:w-1/2">
       <div class="px-8 pt-2 pb-16 relative">
-        <h1 class="title-font sm:text-4xl text-2xl font-bold mb-3">Temukan hadiah yang sempurna dengan <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-600">CariHadiah</span>
+        <h1 class="title-font sm:text-4xl text-2xl font-bold mb-3 text-black">Temukan hadiah yang sempurna dengan <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-600">CariHadiah</span>
         </h1>
-        <p class="mb-3">Jawablah kuis singkat tentang kepribadian dan temukan daftar ide hadiah terbaik yang
+        <p class="mb-3 text-black">Jawablah kuis singkat tentang kepribadian dan temukan daftar ide hadiah terbaik yang
           dikurasi khusus untuk mereka</p>
 
         <a href="<?= base_url() ?>fill">
