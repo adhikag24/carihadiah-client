@@ -4,7 +4,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="#" id="product-card-template" class="product-card max-w-sm rounded overflow-hidden shadow-lg bg-white" style="display:none;">
+        <a href="#" target="_blank" id="product-card-template" class="product-card max-w-sm rounded overflow-hidden shadow-lg bg-white" style="display:none;">
             <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="font-bold sm:text-lg text-sm mb-2 text-black"></div>
@@ -73,7 +73,7 @@
                 productCardClone.setAttribute('href', jsonData[i].affiliate_url);
                 if (~jsonData[i].affiliate_url.indexOf("tokopedia")) {
                     $(productCardClone).find("#merchant-logo").attr("src", "<?= base_url() ?>/assets/image/tokopedia-icon.png");
-                }else{
+                } else {
                     $(productCardClone).find("#merchant-logo").attr("src", "<?= base_url() ?>/assets/image/shopee-icon.png");
                 }
 
@@ -207,7 +207,9 @@
         }
     }
 
+
     @media (max-width: 767px) {
+
         .product-card:active {
             transform: scale(1.05);
         }
