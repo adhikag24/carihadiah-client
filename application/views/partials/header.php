@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="CariHadiah">
+    <meta property="og:description" content="CariHadiah bantu kamu cari hadiah dengan teknologi AI, untuk orang tersayang.">
+    <meta property="og:image" content="<?= base_url() ?>assets/image/logo-3.png">
+    <meta property="og:url" content="https://carihadiah.com/">
+    <meta property="og:type" content="website">
+
     <!--<link href="<?= base_url() ?>assets/css/dist/output.css" rel="stylesheet">-->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
