@@ -11,6 +11,10 @@
                 <hr class="my-2 border-gray-400">
                 <p id="product-description" class="text-gray-700 text-xs sm:text-base"></p>
                 <p id="price" class="font-bold text-gray-900 mt-2 sm:text-base text-xs">$99.99</p>
+                <button href="#" class="bg-slate-200 mt-5 hover:bg-slate-100 rounded-none text-black font-medium py-2 px-4 inline-flex items-center justify-center">
+                    <img id="merchant-logo" class="w-5 h-5 mr-2" src="<?= base_url() ?>/assets/image/tokopedia-icon.png">
+                    <span class="text-xs sm:text-base whitespace-nowrap">Beli Sekarang</span>
+                </button>
             </div>
         </a>
     </div>
@@ -67,6 +71,12 @@
                 productCardClone.querySelector("p").textContent = jsonData[i].description;
                 productCardClone.querySelector("#price").textContent = "Rp." + jsonData[i].price;
                 productCardClone.setAttribute('href', jsonData[i].affiliate_url);
+                if (~jsonData[i].affiliate_url.indexOf("tokopedia")) {
+                    $(productCardClone).find("#merchant-logo").attr("src", "<?= base_url() ?>/assets/image/tokopedia-icon.png");
+                }else{
+                    $(productCardClone).find("#merchant-logo").attr("src", "<?= base_url() ?>/assets/image/shopee-icon.png");
+                }
+
                 document.querySelector(".grid").appendChild(productCardClone);
             }
         }
