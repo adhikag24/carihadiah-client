@@ -7,7 +7,7 @@
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="CariHadiah">
     <meta property="og:description" content="CariHadiah bantu kamu cari hadiah dengan teknologi AI, untuk orang tersayang.">
-    <meta property="og:image" content="<?= base_url() ?>assets/image/logo-3.png">
+    <meta property="og:image" content="<?= base_url() ?>assets/image/meta-logo.png">
     <meta property="og:url" content="https://carihadiah.com/">
     <meta property="og:type" content="website">
 
