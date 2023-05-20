@@ -14,7 +14,8 @@ class Product_model extends CI_Model {
                         'store' => $data[3],
                         'price' => $data[4],
                         'affiliate_url' => $data[5],
-                        'image_url' => $data[6],
+                        'affiliate_url_2' => $data[6],
+                        'image_url' => $data[7],
                     ];
                     array_push($products, $product);
                 }
