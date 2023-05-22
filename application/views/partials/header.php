@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Open Graph meta tags -->
+    <link rel="canonical" href=https://carihadiah.com/>
     <meta property="og:title" content="CariHadiah">
     <meta property="og:description" content="CariHadiah bantu kamu cari hadiah dengan teknologi AI, untuk orang tersayang.">
     <meta property="og:image" content="<?= base_url() ?>assets/image/meta-logo.png">
