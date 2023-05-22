@@ -415,7 +415,7 @@
         // for_who, gender, age, event, weekend_activity, fashion_taste, content_type, personality
 
         // Set the action and method attributes of the form
-        myForm.action = "<?= base_url() ?>result";
+        myForm.action = "<?= base_url() ?>rekomendasi-hadiah";
         myForm.method = "post";
         myForm.style.display = "none";
         myForm.style.display = "hidden";

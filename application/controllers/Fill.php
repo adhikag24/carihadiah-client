@@ -20,7 +20,8 @@ class Fill extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('partials/header');
+		$data['title'] = "Isi data | CariHadiah";
+		$this->load->view('partials/header',$data);
 		$this->load->view('fill/fill');
 		$this->load->view('partials/footer');
 	}

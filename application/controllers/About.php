@@ -20,7 +20,8 @@ class About extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('partials/header');
+		$data['title'] = "Tentang Kami | CariHadiah";
+		$this->load->view('partials/header',$data);
 		$this->load->view('home/about');
 		$this->load->view('partials/footer');
 	}

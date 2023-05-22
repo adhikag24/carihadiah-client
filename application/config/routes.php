@@ -52,4 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['public/(:any)'] = 'public/$1';
+$route['tentang-kami'] = 'about';
+$route['isi-data'] = 'fill';
+$route['rekomendasi-hadiah'] = 'result';

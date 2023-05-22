@@ -20,7 +20,9 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('partials/header');
+		$data['title'] = "Platform Cari Hadiah dengan Teknologi AI";
+
+		$this->load->view('partials/header',$data);
 		$this->load->view('home/home');
 		$this->load->view('partials/footer');
 	}

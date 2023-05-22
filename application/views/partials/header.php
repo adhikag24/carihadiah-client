@@ -24,7 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>CariHadiah</title>
+    <title><?=$title?></title>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1F5FH0V4P"></script>
@@ -78,7 +78,7 @@
                         <div class="hidden sm:ml-6 sm:block">
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="<?= base_url() ?>about" class="text-gray-700 hover:bg-white hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium">About</a>
+                                <a href="<?= base_url() ?>tentang-kami" class="text-gray-700 hover:bg-white hover:text-gray-900 rounded-md px-3 py-2 text-sm font-medium">Tentang Kami</a>
                             </div>
                         </div>
 
@@ -102,7 +102,7 @@
         <div class="sm:hidden hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="<?= base_url() ?>about" class="text-gray-700 hover:bg-white hover:text-gray-900 block rounded-md px-3 py-2 text-base font-medium" aria-current="page">About</a>
+                <a href="<?= base_url() ?>tentang-kami" class="text-gray-700 hover:bg-white hover:text-gray-900 block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Tentang Kami</a>
             </div>
         </div>
     </nav>

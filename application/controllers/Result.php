@@ -32,7 +32,13 @@ class Result extends CI_Controller
     public function index()
     {
         $post = $this->input->post();
+
+        if (empty($post)){
+            redirect(base_url());
+        }
+        
         $data['post'] = json_encode($post);
+
         // $request = $this->constructRequest($post);
 
         // $response = $this->sendRequest($request);
@@ -50,7 +56,9 @@ class Result extends CI_Controller
 
         // $data["listOfProducts"] = json_encode($listOfProducts);
 
-        $this->load->view('partials/header');
+		$data['title'] = "Rekomendasi Hadiah | CariHadiah";
+
+        $this->load->view('partials/header',$data);
         // $this->load->view('result/result', $data);
         $this->load->view('result/result', $data);
         $this->load->view('partials/footer');

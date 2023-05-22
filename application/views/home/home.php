@@ -7,7 +7,7 @@
         <p class="mb-3 text-black">Jawablah kuis singkat tentang kepribadian dan temukan daftar ide hadiah terbaik yang
           dikurasi khusus untuk mereka</p>
 
-        <a href="<?= base_url() ?>fill">
+        <a href="<?= base_url() ?>isi-data">
           <!--<button class="btn mt-3 btn-wide bg-orange-500">Mulai</button>-->
           <!--<button class="rounded-none hover:rounded-lg">Save Changes</button>-->
           <button class="bg-orange-500 hover:bg-orange-700 hover:rounded-lg text-white py-2 px-4 rounded-none font-semibold w-1/2">
