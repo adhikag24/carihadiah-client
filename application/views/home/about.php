@@ -2,7 +2,7 @@
     <div class="flex flex-col lg:flex-row justify-between gap-8">
         <div class="w-full lg:w-5/12 flex flex-col justify-center">
             <h1 class="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 ">Tentang CariHadiah</h1>
-            <p class="font-normal text-base leading-6 text-gray-600 ">CariHadiah.com membantu Anda menemukan hadiah yang sempurna untuk orang yang Anda sayangi dengan mudah dan menyenangkan.
+            <p class="font-normal text-base leading-6 mt-5 text-gray-600 ">CariHadiah.com membantu Anda menemukan hadiah yang sempurna untuk orang yang Anda sayangi dengan mudah dan menyenangkan.
 
                 <br> <br>Kami menawarkan pilihan hadiah yang sangat beragam, dari yang klasik hingga unik dan modern, Produk-produk yang direkomendasikan oleh CariHadiah, berasal dari ecommerce seperti (Tokopedia, Shopee, dll).
             </p>
@@ -15,7 +15,7 @@
     <div class="flex lg:flex-row flex-col justify-between gap-8 pt-12">
         <div class="w-full lg:w-5/12 flex flex-col justify-center">
             <h1 class="text-3xl lg:text-4xl font-bold leading-9 text-black ">Misi Kami</h1>
-            <p class="font-normal text-base leading-6 text-gray-600 ">Kami memahami betapa sulitnya mencari hadiah yang tepat, itulah sebabnya kami membuat platform untuk mencari hadiah yang mudah digunakan.
+            <p class="font-normal text-base leading-6 mt-5 text-gray-600 ">Kami memahami betapa sulitnya mencari hadiah yang tepat, itulah sebabnya kami membuat platform untuk mencari hadiah yang mudah digunakan.
 
                 <br><br> Pengguna dapat mengisi tipe kepribadian orang yang ingin diberikan hadiah, dan kami akan menghasilkan daftar rekomendasi hadiah yang dipersonalisasi.
             
