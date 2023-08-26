@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Result extends CI_Controller
 {
 
+
     /**
      * Index Page for this controller.
      *
@@ -36,7 +37,7 @@ class Result extends CI_Controller
         if (empty($post)){
             redirect(base_url());
         }
-        
+
         $data['post'] = json_encode($post);
 
         // $request = $this->constructRequest($post);
@@ -76,8 +77,8 @@ class Result extends CI_Controller
 
 
         if ($response["result"] == null) {
-            // $this->writeErrorLog($response["error"], $request);
-            $response["result"] = $this->getRandomProductIds(100);
+            $this->writeErrorLog($response["error"], $request);
+            $response["result"] = $this->getRandomProductIds(133);
         }
 
         $listOfProducts  = $this->product_model->get_products_by_ids($response["result"], base_url());
@@ -155,7 +156,20 @@ class Result extends CI_Controller
 
     private function sendRequest($request)
     {
-        $url = 'https://carihadiah.et.r.appspot.com/recommend_products';
+      
+        $hostProduction = 'https://carihadiah.et.r.appspot.com';
+        $hostDevelop = 'http://127.0.0.1:5000';
+
+        $path = '/recommend_products';
+
+        $url = '';
+
+        if (base_url() == 'http://localhost/rekomendasikado-client/') {
+            $url = $hostDevelop . $path;
+        }else{
+            $url = $hostProduction . $path;
+        }
+
         // $data = array(
         //     "for_who" => "teman-kerja",
         //     "gender" => "perempuan",

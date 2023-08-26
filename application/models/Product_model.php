@@ -3,10 +3,14 @@ class Product_model extends CI_Model {
     public function get_products_by_ids($ids, $baseUrl) {
         $products = [];
 
+        $uniqueIds = array_unique($ids);
+  
+
+
         if (($handle = fopen($baseUrl."assets/csv/products.csv", "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                 $id = $data[0];
-                if (in_array($id, $ids)) {
+                if (in_array($id, $uniqueIds)) {
                     $product = [
                         'id' => $id,
                         'name' => $data[1],
@@ -22,6 +26,9 @@ class Product_model extends CI_Model {
             }
             fclose($handle);
         }
+        
+        shuffle($products);
+
         return $products;
     }
 }
